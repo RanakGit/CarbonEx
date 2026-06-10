@@ -1,23 +1,174 @@
-import { useState, useEffect, useRef } from "react";
+# 🌿 CarbonEx — Verified Carbon Credit Trading Platform
 
-// ─── MOCK DATA ────────────────────────────────────────────────────────────────
+> **HACKHAZARDS '26 Submission** · Climate & Sustainability Systems
 
-const LISTINGS = [
-  {
-    id: "L001", seller: "Amazon Basin Conservancy", country: "Brazil",
-    type: "REDD+", standard: "Verra VCS", vintage: 2024,
-    available: 12400, price: 18.40, change: +2.1,
-    methodology: "Avoided Deforestation", rating: "Gold",
-    description: "Protecting 84,000 ha of primary Amazon rainforest. Third-party audited by Bureau Veritas.",
-    sdgs: [13, 15, 1], verified: true, co2e: 12400,
-    lat: -3.1, lng: -60.0
-  },
-  {
-    id: "L002", seller: "Sahel Reforestation Initiative", country: "Mali",
-    type: "ARR", standard: "Gold Standard", vintage: 2024,
-    available: 5800, price: 24.70, change: -0.8,
-    methodology: "Afforestation & Reforestation", rating: "Gold",
-    description: "Planting native species across degraded Sahel lands, supporting 3,200 smallholder farmers.",
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-22c55e?style=for-the-badge)](https://carbonex.vercel.app)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+[![Built With React](https://img.shields.io/badge/Built%20With-React%20%2B%20Vite-61dafb?style=for-the-badge)](https://vitejs.dev)
+
+---
+
+## 🌍 The Problem
+
+The voluntary carbon market is worth **$2 billion** and growing — but it's broken.
+
+- Buyers can't verify the legitimacy of credits before purchasing
+- Sellers (often conservation projects in developing nations) lack direct market access
+- Retirement and offset claims are opaque and hard to audit
+- Fragmented standards (Verra, Gold Standard, ACR) create confusion
+
+**The result?** Greenwashing thrives. Real climate projects go underfunded.
+
+---
+
+## 💡 The Solution
+
+**CarbonEx** is a transparent, end-to-end carbon credit trading platform that connects verified project developers directly with buyers — individuals, startups, and enterprises — who want to offset their emissions with confidence.
+
+Every credit on CarbonEx is:
+- ✅ Verified against Verra VCS, Gold Standard, or ACR
+- 📋 Traceable to a specific project, vintage year, and methodology
+- 🏅 Retirable with a serialized certificate published on-chain
+
+---
+
+## ✨ Features
+
+### 📊 Live Carbon Market
+- Real-time price feed ticker across 8+ project types
+- Sparkline price history charts per listing
+- Filter by project type, certification standard, and country
+- Sort by price, % change, or available volume
+
+### 🔍 Verified Project Listings
+- REDD+ (Avoided Deforestation)
+- ARR (Afforestation, Reforestation & Revegetation)
+- Blue Carbon (Mangrove Restoration)
+- Renewable Energy (Solar, Wind)
+- Clean Cookstoves
+- Each listing shows SDG alignment, methodology, vintage year, and third-party auditor
+
+### 💹 Trade Flow
+- Buy or sell credits in a 3-step guided modal
+- Real-time total + platform fee (0.5%) calculation
+- Transaction hash receipt on confirmation
+- Wallet balance updates instantly
+
+### 🗂️ Portfolio Dashboard
+- Holdings with average buy price and live P&L
+- Total portfolio value and CO₂e held
+- Full activity feed with transaction history
+
+### 🏅 Credit Retirement
+- Permanently retire credits to offset emissions
+- Specify purpose, beneficiary, and project
+- Receive a serialized retirement certificate (CXRET-YYYY-XXXXX)
+- Credits burned from circulation — provable and permanent
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 18 + Vite |
+| Styling | Pure CSS-in-JS (zero dependencies) |
+| Charts | Custom SVG sparklines |
+| Deployment | Vercel |
+| State | React useState (local) |
+
+> Designed to be lightweight, fast, and deployable anywhere — no backend required for the demo.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/RanakGit/CarbonEx.git
+cd CarbonEx
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## 📁 Project Structure
+
+```
+CarbonEx/
+├── index.html          # Entry HTML
+├── vite.config.js      # Vite configuration
+├── package.json        # Dependencies
+└── src/
+    ├── main.jsx        # React root mount
+    └── App.jsx         # Full application (CarbonEx platform)
+```
+
+---
+
+## 🌱 SDG Alignment
+
+CarbonEx directly supports the following UN Sustainable Development Goals:
+
+| SDG | Goal |
+|-----|------|
+| 🎯 SDG 7 | Affordable and Clean Energy |
+| 🎯 SDG 13 | Climate Action |
+| 🎯 SDG 14 | Life Below Water |
+| 🎯 SDG 15 | Life on Land |
+| 🎯 SDG 1 | No Poverty (via smallholder farmer projects) |
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] Wallet connect (MetaMask / WalletConnect)
+- [ ] On-chain credit issuance via smart contracts (ERC-1155)
+- [ ] KYB/KYC verification for sellers
+- [ ] Real-time price oracle integration
+- [ ] Mobile app (React Native)
+- [ ] API for enterprise bulk purchases
+- [ ] Automated MRV (Monitoring, Reporting & Verification) dashboard
+
+---
+
+## 👤 Author
+
+**Ranak**
+Built for HACKHAZARDS '26 — Climate & Sustainability Systems track
+
+---
+
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+<div align="center">
+  <strong>Built with 🌿 for the planet · HACKHAZARDS '26</strong>
+</div>
+description: "Planting native species across degraded Sahel lands, supporting 3,200 smallholder farmers.",
     sdgs: [1, 2, 13, 15], verified: true, co2e: 5800,
     lat: 17.0, lng: -2.0
   },
